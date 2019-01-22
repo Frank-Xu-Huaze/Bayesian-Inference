@@ -1,0 +1,410 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={HW2},
+            pdfauthor={Frank},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{HW2}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \subtitle{STA-360/602, Spring 2018}
+  \author{Frank}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{1/16/2019}
+
+
+\begin{document}
+\maketitle
+
+\paragraph{1. Lab component}\label{lab-component}
+
+\paragraph{\texorpdfstring{(a) Task 3. Write a function that takes as
+its inputs that data you simulated (or any data of the same type) and a
+sequence of \(\theta\) values of length 1000 and produces Likelihood
+values based on the Binomial Likelihood. Plot your sequence and its
+corresponding Likelihood
+function.}{(a) Task 3. Write a function that takes as its inputs that data you simulated (or any data of the same type) and a sequence of \textbackslash{}theta values of length 1000 and produces Likelihood values based on the Binomial Likelihood. Plot your sequence and its corresponding Likelihood function.}}\label{a-task-3.-write-a-function-that-takes-as-its-inputs-that-data-you-simulated-or-any-data-of-the-same-type-and-a-sequence-of-theta-values-of-length-1000-and-produces-likelihood-values-based-on-the-binomial-likelihood.-plot-your-sequence-and-its-corresponding-likelihood-function.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Generating simulated data}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{obs.data <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(}\DataTypeTok{n =} \DecValTok{100}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{prob =} \FloatTok{0.01}\NormalTok{)}
+\KeywordTok{head}\NormalTok{(obs.data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0 0 0 0 0 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create and plot likelihood function}
+\NormalTok{n =}\StringTok{ }\KeywordTok{length}\NormalTok{(obs.data)}
+\NormalTok{x =}\StringTok{ }\KeywordTok{sum}\NormalTok{(obs.data)}
+\NormalTok{th =}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{length =} \DecValTok{1000}\NormalTok{)}
+
+\NormalTok{like =}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(th, x}\OperatorTok{+}\DecValTok{1}\NormalTok{, n}\OperatorTok{-}\NormalTok{x}\OperatorTok{+}\DecValTok{1}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{()}\OperatorTok{+}\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ like))}\OperatorTok{+}\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{expression}\NormalTok{(theta), }\DataTypeTok{y =} \StringTok{"Density"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HW2_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\paragraph{\texorpdfstring{(b) Task 4. Write a function that takes as
+its inputs prior parameters a and b for the Beta-Bernoulli model and the
+observed data, and produces the posterior parameters you need for the
+model. Generate the posterior parameters for a non-informative prior
+i.e. \((a,b) = (1,1)\) and for an informative case
+\((a,b) = (3,1)\)}{(b) Task 4. Write a function that takes as its inputs prior parameters a and b for the Beta-Bernoulli model and the observed data, and produces the posterior parameters you need for the model. Generate the posterior parameters for a non-informative prior i.e. (a,b) = (1,1) and for an informative case (a,b) = (3,1)}}\label{b-task-4.-write-a-function-that-takes-as-its-inputs-prior-parameters-a-and-b-for-the-beta-bernoulli-model-and-the-observed-data-and-produces-the-posterior-parameters-you-need-for-the-model.-generate-the-posterior-parameters-for-a-non-informative-prior-i.e.-ab-11-and-for-an-informative-case-ab-31}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a1 =}\StringTok{ }\DecValTok{1}
+\NormalTok{b1 =}\StringTok{ }\DecValTok{1}
+\NormalTok{a2 =}\StringTok{ }\DecValTok{3}
+\NormalTok{b2 =}\StringTok{ }\DecValTok{1}
+
+\NormalTok{prior1 =}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(th, a1, b1)}
+\NormalTok{post1 =}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(th, a1}\OperatorTok{+}\NormalTok{x, b1}\OperatorTok{+}\NormalTok{n}\OperatorTok{-}\NormalTok{x)}
+
+\NormalTok{prior2 =}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(th, a2, b2)}
+\NormalTok{post2 =}\StringTok{ }\KeywordTok{dbeta}\NormalTok{(th, a2}\OperatorTok{+}\NormalTok{x, b2}\OperatorTok{+}\NormalTok{n}\OperatorTok{-}\NormalTok{x)}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{(b) Task 5. Create two plots, one for the informative and one
+for the non-informative case to show the posterior distribution and
+superimpose the prior distribu- tions on each along with the likelihood.
+What do you see? Remember to turn the y-axis ticks off since
+superimposing may make the scale
+non-sense.}\label{b-task-5.-create-two-plots-one-for-the-informative-and-one-for-the-non-informative-case-to-show-the-posterior-distribution-and-superimpose-the-prior-distribu--tions-on-each-along-with-the-likelihood.-what-do-you-see-remember-to-turn-the-y-axis-ticks-off-since-superimposing-may-make-the-scale-non-sense.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plot for non-informative case}
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ post1, }\DataTypeTok{linetype =} \StringTok{'posterior'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ prior1, }\DataTypeTok{linetype =} \StringTok{'prior'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ like, }\DataTypeTok{linetype =} \StringTok{'likelihood'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{expression}\NormalTok{(theta), }\DataTypeTok{y =} \StringTok{"Density"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Prior, likelihood and posterior when given a non-informative prior"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HW2_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plot for informative case}
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ post2, }\DataTypeTok{linetype =} \StringTok{'posterior'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ prior2, }\DataTypeTok{linetype =} \StringTok{'prior'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ like, }\DataTypeTok{linetype =} \StringTok{'likelihood'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{expression}\NormalTok{(theta), }\DataTypeTok{y =} \StringTok{"Density"}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Prior, likelihood and posterior when given an informative prior"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HW2_files/figure-latex/unnamed-chunk-3-2.pdf}
+
+\paragraph{\texorpdfstring{2. The \textbf{\emph{Exponential-Gamma
+Model}} We write \(X\sim Exp(\theta)\) to indicate that \(X\) has the
+Exponential distribution, that is, its
+p.d.f.~is}{2. The Exponential-Gamma Model We write X\textbackslash{}sim Exp(\textbackslash{}theta) to indicate that X has the Exponential distribution, that is, its p.d.f.~is}}\label{the-exponential-gamma-model-we-write-xsim-exptheta-to-indicate-that-x-has-the-exponential-distribution-that-is-its-p.d.f.is}
+
+\[ p(x|\theta) = Exp(x|\theta) = \theta\exp(-\theta x)1(x>0). \]
+\#\#\#\# The Exponential distribution has some special properties that
+make it a good model for certain applications. It has been used to model
+the time between events (such as neuron spikes, website hits, neutrinos
+captured in a detector), extreme values such as maximum daily rainfall
+over a period of one year, or the amount of time until a product fails
+(lightbulbs are a standard example).
+
+\paragraph{\texorpdfstring{Suppose you have data \(x_1,\dotsc,x_n\)
+which you are modeling as i.i.d.~observations from an Exponential
+distribution, and suppose that your prior is \(\theta\sim Gamma(a,b)\),
+that
+is,}{Suppose you have data x\_1,\textbackslash{}dotsc,x\_n which you are modeling as i.i.d.~observations from an Exponential distribution, and suppose that your prior is \textbackslash{}theta\textbackslash{}sim Gamma(a,b), that is,}}\label{suppose-you-have-data-x_1dotscx_n-which-you-are-modeling-as-i.i.d.observations-from-an-exponential-distribution-and-suppose-that-your-prior-is-thetasim-gammaab-that-is}
+
+\[ p(\theta) = Gamma(\theta|a,b) = \frac{b^a}{\Gamma(a)}\theta^{a-1}\exp(-b\theta)1(\theta>0). \]
+
+\paragraph{\texorpdfstring{(a) Derive the formula for the posterior
+density, \(p(\theta|x_{1:n})\). Give the form of the posterior in terms
+of one of the most common distributions (Bernoulli, Beta, Exponential,
+or
+Gamma).}{(a) Derive the formula for the posterior density, p(\textbackslash{}theta\textbar{}x\_\{1:n\}). Give the form of the posterior in terms of one of the most common distributions (Bernoulli, Beta, Exponential, or Gamma).}}\label{a-derive-the-formula-for-the-posterior-density-pthetax_1n.-give-the-form-of-the-posterior-in-terms-of-one-of-the-most-common-distributions-bernoulli-beta-exponential-or-gamma.}
+
+\[\begin{align}p(\theta|x_{1:n}) & \propto p(x_{1:n}|\theta)p(\theta)\\
+& \propto \prod_n[\theta\exp(-\theta x)]\frac{b^a}{\Gamma(a)}\theta^{a-1}\exp(-b\theta)\\
+& \propto \theta^n\exp(-n\bar{x}\theta)\theta^{a-1}\exp(-b\theta)\\
+& \propto \theta^{n+a-1}\exp[-(n\bar{x}+b)\theta]\\
+& \propto Gamma(\theta|n+a,n\bar{x}+b)
+\end{align}\]
+
+\paragraph{\texorpdfstring{(b) Why is the posterior distribution a
+\textbf{\emph{proper}} density or probability distribution
+function?}{(b) Why is the posterior distribution a proper density or probability distribution function?}}\label{b-why-is-the-posterior-distribution-a-proper-density-or-probability-distribution-function}
+
+Because the prior \(p(\theta) = Gamma(\theta|a,b)\) is a conjugate prior
+for the given likelihood function. That means the posterior is in the
+same probability distribution family as the prior probability
+distribution \(p(\theta)\) is.
+
+\paragraph{\texorpdfstring{(c) Now, suppose you are measuring the number
+of seconds between lightning strikes during a storm, your prior is
+\(Gamma(0.1,1.0)\), and your data
+is}{(c) Now, suppose you are measuring the number of seconds between lightning strikes during a storm, your prior is Gamma(0.1,1.0), and your data is}}\label{c-now-suppose-you-are-measuring-the-number-of-seconds-between-lightning-strikes-during-a-storm-your-prior-is-gamma0.11.0-and-your-data-is}
+
+\[(x_1,\dotsc,x_8) = (20.9, 69.7, 3.6, 21.8, 21.4, 0.4, 6.7, 10.0).\]
+Plot the prior and posterior p.d.f.s. (Be sure to make your plots on a
+scale that allows you to clearly see the important features.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{20.9}\NormalTok{, }\FloatTok{69.7}\NormalTok{, }\FloatTok{3.6}\NormalTok{, }\FloatTok{21.8}\NormalTok{, }\FloatTok{21.4}\NormalTok{, }\FloatTok{0.4}\NormalTok{, }\FloatTok{6.7}\NormalTok{, }\FloatTok{10.0}\NormalTok{)}
+\NormalTok{th =}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DataTypeTok{length =} \DecValTok{1000}\NormalTok{)}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(X)}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{length}\NormalTok{(X)}
+\NormalTok{a =}\StringTok{ }\FloatTok{0.1}
+\NormalTok{b =}\StringTok{ }\FloatTok{1.0}
+
+\CommentTok{# Generate the prior and post function according to conclusions above}
+\NormalTok{prior <-}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(th, a, b)}
+\NormalTok{post <-}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(th, a }\OperatorTok{+}\StringTok{ }\NormalTok{n, b }\OperatorTok{+}\StringTok{ }\NormalTok{x)}
+
+\CommentTok{# Plotting}
+\KeywordTok{ggplot}\NormalTok{()}\OperatorTok{+}\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ prior, }\DataTypeTok{linetype =} \StringTok{'prior'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ th, }\DataTypeTok{y =}\NormalTok{ post, }\DataTypeTok{linetype =} \StringTok{'post'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{expression}\NormalTok{(theta), }\DataTypeTok{y =} \StringTok{'density'}\NormalTok{, }\DataTypeTok{title =} \StringTok{'Posterior and Prior based on given data'}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HW2_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\paragraph{(d) Give a specific example of an application where an
+Exponential model would be reasonable. Give an example where an
+Exponential model would NOT be appropriate, and explain
+why.}\label{d-give-a-specific-example-of-an-application-where-an-exponential-model-would-be-reasonable.-give-an-example-where-an-exponential-model-would-not-be-appropriate-and-explain-why.}
+
+Reasonable: The time that some radioactive matter decays.
+
+Unreasonable: The amount of flying bugs in different hours of day.
+Because most bugs are only active during night time, which is not
+constant throughout the day.
+
+\paragraph{\texorpdfstring{3. \textbf{\emph{Priors, Posteriors,
+Predictive Distributions (Hoff,
+3.9)}}.}{3. Priors, Posteriors, Predictive Distributions (Hoff, 3.9).}}\label{priors-posteriors-predictive-distributions-hoff-3.9.}
+
+\paragraph{\texorpdfstring{An unknown quantity \(Y\) has a
+Galenshore(\(a, \theta\)) distribution if its density is given
+by}{An unknown quantity Y has a Galenshore(a, \textbackslash{}theta) distribution if its density is given by}}\label{an-unknown-quantity-y-has-a-galenshorea-theta-distribution-if-its-density-is-given-by}
+
+\[p(y) = \frac{2}{\Gamma(a)} \; \theta^{2a} y^{2a - 1} e^{-\theta^2 y^2}\]
+for \(y>0, \theta >0, a>0.\) Assume for now that \(a\) is known. For
+this density, \[E[Y] = \frac{\Gamma(a +1/2)}{\theta \Gamma(a)}\] and
+\[E[Y^2] = \frac{a}{\theta^2}.\]
+
+\paragraph{\texorpdfstring{(a) Identify a class of conjugate prior
+densities for \(\theta\). Plot a few members of this class of
+densities.}{(a) Identify a class of conjugate prior densities for \textbackslash{}theta. Plot a few members of this class of densities.}}\label{a-identify-a-class-of-conjugate-prior-densities-for-theta.-plot-a-few-members-of-this-class-of-densities.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Define dgalen function}
+\NormalTok{dgalen <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(th,a,b)\{}
+  \KeywordTok{return}\NormalTok{(}\DecValTok{2}\OperatorTok{/}\KeywordTok{gamma}\NormalTok{(a)}\OperatorTok{*}\NormalTok{b}\OperatorTok{^}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{a)}\OperatorTok{*}\NormalTok{th}\OperatorTok{^}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{a}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{b}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{th}\OperatorTok{^}\DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+\CommentTok{# Creating a set of (a, b) and theta for plotting}
+\NormalTok{a1 =}\StringTok{ }\DecValTok{1}
+\NormalTok{b1 =}\StringTok{ }\DecValTok{1}
+\NormalTok{a2 =}\StringTok{ }\DecValTok{3}
+\NormalTok{b2 =}\StringTok{ }\DecValTok{1}
+\NormalTok{a3 =}\StringTok{ }\DecValTok{1}
+\NormalTok{b3 =}\StringTok{ }\DecValTok{3}
+\NormalTok{th =}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DataTypeTok{length =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Plotting}
+\KeywordTok{ggplot}\NormalTok{()}\OperatorTok{+}\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{th, }\DataTypeTok{y=}\KeywordTok{dgalen}\NormalTok{(th,a1,b1),}\DataTypeTok{linetype=}\StringTok{'1'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{th, }\DataTypeTok{y=}\KeywordTok{dgalen}\NormalTok{(th,a2,b2),}\DataTypeTok{linetype=}\StringTok{'2'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{th, }\DataTypeTok{y=}\KeywordTok{dgalen}\NormalTok{(th,a3,b3),}\DataTypeTok{linetype=}\StringTok{'3'}\NormalTok{))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{HW2_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\paragraph{\texorpdfstring{(b) Let
+\(Y_1, \ldots, Y_n \stackrel{iid}{\sim}\) Galenshore(\(a, \theta\)).
+Find the posterior distribution of \(\theta \mid y_{1:n}\) using a prior
+from your conjugate
+class.}{(b) Let Y\_1, \textbackslash{}ldots, Y\_n \textbackslash{}stackrel\{iid\}\{\textbackslash{}sim\} Galenshore(a, \textbackslash{}theta). Find the posterior distribution of \textbackslash{}theta \textbackslash{}mid y\_\{1:n\} using a prior from your conjugate class.}}\label{b-let-y_1-ldots-y_n-stackreliidsim-galenshorea-theta.-find-the-posterior-distribution-of-theta-mid-y_1n-using-a-prior-from-your-conjugate-class.}
+
+Suppose the prior, \(\theta\), is \(\theta \sim\) Galenshore(k, b),
+
+Given that Y has a Galenshore(a, \(\theta\)) distribution for
+y1,\ldots{},yn,
+
+then the posterior is:
+
+\[\begin{align}p(\theta|y_{1:n}) & \propto p(\theta)p(y_{1:n}|\theta)\\
+& \propto \theta^{2k-1}\exp(-b^2\theta^2 )\prod_n [\theta^{2a}yi^{2a-1}\exp(-\theta^2yi^2)]\\
+& \propto \theta^{2k-1}\exp(-b^2\theta^2 )\theta^{2an}\exp(-\theta^2\sum_n yi^2)\\
+& \propto \theta^{2k+2an-1}\exp[-\theta^2(b^2+\sum_n yi^2)]\\
+& \propto Galenshore(\alpha = k+an,\beta = \sqrt{b^2+\sum_n yi^2})
+\end{align}\]
+
+\paragraph{\texorpdfstring{(c) Write down
+\[\frac{p(\theta_a \mid y_{1:n})}{p(\theta_b \mid y_{1:n})}\] and
+simplify. Identify a sufficient
+statistic.}{(c) Write down \textbackslash{}frac\{p(\textbackslash{}theta\_a \textbackslash{}mid y\_\{1:n\})\}\{p(\textbackslash{}theta\_b \textbackslash{}mid y\_\{1:n\})\} and simplify. Identify a sufficient statistic.}}\label{c-write-down-fracptheta_a-mid-y_1nptheta_b-mid-y_1n-and-simplify.-identify-a-sufficient-statistic.}
+
+Given the result from (b),
+\(p(\theta|y_{1:n}) \propto Galenshore(\alpha = k+an,\beta = \sqrt{b^2+\sum_n yi^2})\):
+
+\[\frac{p(\theta_a \mid y_{1:n})}{p(\theta_b \mid y_{1:n})} = \frac{\theta_a^{2\alpha-1}exp(-\beta^2\theta_a^2)}{\theta_b^{2\alpha-1}exp(-\beta^2\theta_b^2)} = \bigg( \frac{\theta_a}{\theta_b}\bigg)^{2\alpha-1}exp[-\beta^2(\theta_a^2-\theta_b^2)]\]
+
+Sufficient statistic: \(\sum_n yi^2\)
+
+\paragraph{\texorpdfstring{(d) Determine
+\(E[\theta \mid y_{1:n}]\).}{(d) Determine E{[}\textbackslash{}theta \textbackslash{}mid y\_\{1:n\}{]}.}}\label{d-determine-etheta-mid-y_1n.}
+
+Since this is a conjugate family, and since given
+\(Y \sim Galenshore(a,\theta)\),
+\[E[Y] = \frac{\Gamma(a +1/2)}{\theta \Gamma(a)}\]
+
+\[E[\theta \mid y_{1:n}] = \frac{\Gamma(\alpha +1/2)}{\beta \Gamma(\alpha)}\\
+given: \alpha = k+an,\beta = \sqrt{b^2+\sum_n yi^2},\\
+where: \theta \sim Galenshore(k, b)\]
+
+\paragraph{\texorpdfstring{(e) Determine the form of the posterior
+predictive density
+\(p(y_{n+1} \mid y_{1:n})\)}{(e) Determine the form of the posterior predictive density p(y\_\{n+1\} \textbackslash{}mid y\_\{1:n\})}}\label{e-determine-the-form-of-the-posterior-predictive-density-py_n1-mid-y_1n}
+
+\[\begin{align} p(y_{n+1} \mid y_{1:n}) &= \int p(y_{n+1} |\theta) p(\theta|y_{1:n})d\theta\\
+&= \int \frac{2}{\Gamma(a)} \; \theta^{2a} y_{n+1}^{2a - 1} e^{-\theta^2 y_{n+1}^2}\frac{2}{\Gamma(\alpha)} \; \beta^{2\alpha} \theta^{2\alpha - 1} e^{-\beta^2 \theta^2}d\theta\\
+&= \frac{4}{\Gamma(a)\Gamma{(\alpha)}}y_{n+1}^{2a - 1}\beta^{2\alpha} \int \theta^{2(a+\alpha)-1} e^{-\theta^2(y_{n+1}^2 + \beta^2)}d\theta\\
+&= \frac{4}{\Gamma(a)\Gamma{(\alpha)}}y_{n+1}^{2a - 1}\beta^{2\alpha} \int \frac{\Gamma(a+\alpha-\frac{1}{2})}{2}(y_{n+1}^2 + \beta^2)^{-(a+\alpha-\frac{1}{2})}\frac{2}{\Gamma(a+\alpha-\frac{1}{2})}(y_{n+1}^2 + \beta^2)^{a+\alpha-\frac{1}{2}}\theta^{2(a+\alpha-\frac{1}{2})-1} e^{-\theta^2(y_{n+1}^2 + \beta^2)}\theta d\theta\\
+&= \frac{2\Gamma(a+\alpha-\frac{1}{2})}{\Gamma(a)\Gamma{(\alpha)}}y_{n+1}^{2a - 1}\beta^{2\alpha}(y_{n+1}^2 + \beta^2)^{-(a+\alpha-\frac{1}{2})}\int Galenshore(\theta|a+\alpha-\frac{1}{2}, \sqrt{y_{n+1}^2 + \beta^2})\theta d\theta\\
+&\propto y_{n+1}^{2a - 1}(y_{n+1}^2 + \beta^2)^{-(a+\alpha-\frac{1}{2})}\frac{\Gamma(a+\alpha)}{\sqrt{y_{n+1}^2 + \beta^2}\Gamma(a+\alpha-\frac{1}{2})}\\
+&\propto y_{n+1}^{2a - 1}(y_{n+1}^2 + \beta^2)^{-(a+\alpha)}
+\end{align}\]
+
+This is the simpliest form I can get, but I cannot recognize the family
+of the distribution.
+
+
+\end{document}
